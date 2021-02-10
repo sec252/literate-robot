@@ -1,3 +1,9 @@
+# Keylogger
+# 2/9/2021
+#
+# SEC252
+# "Hack in a Hoodie!"
+
 import pynput
 
 from pynput.keyboard import Key, Listener
