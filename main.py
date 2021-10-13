@@ -2,7 +2,6 @@
 # 2/9/2021
 #
 # SEC252
-# "Hack in a Hoodie!"
 
 import pynput
 
